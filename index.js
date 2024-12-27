@@ -7,6 +7,9 @@ import dotenv from "dotenv";
 dotenv.config();
 // imporing DB connection
 import connectDB from "./database/connection.js";
+
+import router from "./Route/route.js";
+
 // Creating object for expresss
 const app = express();
 // For allowing other orgin
@@ -17,6 +20,8 @@ app.get("/", (req, res) => {
     res.status(200).json("Sucessfully connected");
   });
 
+
+  app.use("/api", router);
 // app.get("/madhu",(req,res) =>{
 
 // })
