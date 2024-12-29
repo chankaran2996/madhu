@@ -9,19 +9,21 @@ dotenv.config();
 import connectDB from "./database/connection.js";
 
 import router from "./Route/route.js";
+import userRouter from "./Route/userRoute.js";
 
 // Creating object for expresss
 const app = express();
 // For allowing other orgin
 app.use(cors());
 
+app.use(express.json());
 // creating responce for home routs
 app.get("/", (req, res) => {
     res.status(200).json("Sucessfully connected");
   });
 
-
-  app.use("/api", router);
+app.use("/user",userRouter)
+app.use("/api", router);
 // app.get("/madhu",(req,res) =>{
 
 // })
